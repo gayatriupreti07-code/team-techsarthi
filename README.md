@@ -3,7 +3,7 @@
 
 **Shikayat Saathi** is a bilingual (Hindi & English) citizen grievance redressal and public service portal designed for the citizens of Uttarakhand. It eliminates complex bureaucratic forms by allowing residents across all 13 districts to type or speak their problems in plain language, automatically routes complaints to the right department, and helps them discover eligible state welfare schemes.
 
-🌐 **Live Demo:** `[Your-Netlify-Link]`
+🌐 **Live Demo:** https://team-techsarthi.netlify.app/
 
 ---
 
