@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shikayat Saathi by Team TechSarthi – PRAYAS 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#eef4f1;
+  --surface:#ffffff;
+  --surface-alt:#f7faf9;
+  --ink:#12231f;
+  --muted:#4a615b;
+  --pine:#0e2a36;
+  --teal:#16798c;
+  --teal-dark:#0f5c6b;
+  --teal-soft:rgba(22,121,140,.1);
+  --gold:#e8a317;
+  --gold-soft:rgba(232,163,23,.16);
+  --line:#d2e0db;
+  --ok:#247a48;
+  --danger:#d64545;
+  --shadow:0 12px 32px rgba(14,42,54,.08);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1715;--surface:#132428;--surface-alt:#192f34;--ink:#eaf3f0;--muted:#9cb5ae;
+    --pine:#071318;--line:#253f44;--teal:#4cc3d9;--teal-dark:#2da4ba;--teal-soft:rgba(76,195,217,.14);
+    --ok:#5cd68d;--shadow:0 12px 32px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1715;--surface:#132428;--surface-alt:#192f34;--ink:#eaf3f0;--muted:#9cb5ae;
+  --pine:#071318;--line:#253f44;--teal:#4cc3d9;--teal-dark:#2da4ba;--teal-soft:rgba(76,195,217,.14);
+  --ok:#5cd68d;--shadow:0 12px 32px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:64px;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;
+  font-size:17.5px;line-height:1.55;
+  background-image:radial-gradient(var(--line) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.wrap{max-width:860px;margin:0 auto}
+
+/* ================= STICKY TOP NAVBAR (MATCHING SCREENSHOT) ================= */
+.top-navbar{
+  position:sticky;top:0;z-index:45;
+  background:rgba(10,31,42,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  padding:8px 16px;color:#f4f9f7;
+}
+.nav-inner{
+  max-width:960px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.nav-links{
+  display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links button{
+  background:transparent;border:0;color:#dcebe7;
+  padding:6px 11px;border-radius:8px;font-size:14.5px;font-weight:700;
+  white-space:nowrap;transition:all .15s;
+}
+.nav-links button:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links button.active{background:var(--gold);color:#12231f}
+
+/* Hero & Real Uttarakhand Mountain Photo Backdrop */
+header{
+  position:relative;overflow:hidden;color:#f4f9f7;
+  padding:24px 20px 155px;
+  background:linear-gradient(175deg,#081d2b 0%,#154c61 52%,#d98a4e 100%);
+}
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.34;mix-blend-mode:luminosity;pointer-events:none;z-index:0;
+}
+.hero{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.hero-photo-card{
+  width:154px;height:154px;border-radius:22px;overflow:hidden;
+  border:3px solid rgba(255,227,163,.55);box-shadow:0 14px 32px rgba(0,0,0,.38);
+  position:relative;flex-shrink:0;background:#0e2a36;
+}
+.hero-photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo-cap{
+  position:absolute;bottom:0;left:0;right:0;padding:4px 8px;
+  background:linear-gradient(transparent,rgba(8,29,43,.9));
+  color:#ffe3a3;font-size:11.5px;font-weight:700;text-align:center;
+}
+.brand-box{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.01em;color:#fff}
+.brand-icon{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--gold),#f3b83a);color:#12231f;
+  font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+.controls{display:flex;align-items:center;gap:8px}
+.theme-btn{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  color:#fff;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+  font-size:15px;transition:background .2s;
+}
+.theme-btn:hover{background:rgba(255,255,255,.22)}
+.lang{display:inline-flex;background:rgba(0,0,0,.25);padding:3px;border-radius:10px;border:1px solid rgba(255,255,255,.22)}
+.lang button{
+  background:transparent;border:0;color:#e6f0ed;padding:3px 12px;
+  font:inherit;font-size:13.5px;font-weight:700;border-radius:7px;transition:all .2s;
+}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#12231f}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:6px;margin-top:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#ffe3a3;background:rgba(0,0,0,.3);padding:4px 12px;border-radius:99px;
+  border:1px solid rgba(255,227,163,.35);
+}
+h1{font-size:clamp(28px,5.5vw,48px);line-height:1.12;font-weight:800;margin:12px 0 12px;letter-spacing:-.015em;text-shadow:0 3px 20px rgba(0,0,0,.4)}
+header p{margin:0;max-width:52ch;color:#e7f2ef;font-size:16.5px;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  color:#fff;border-radius:99px;padding:5px 14px;font-size:14px;font-weight:600;
+  backdrop-filter:blur(6px);
+}
+.peaks{position:absolute;left:0;bottom:-1px;width:100%;height:150px;z-index:1;pointer-events:none}
+.peaks .f{fill:var(--bg)}
+
+/* Main Layout & Cards */
+main{margin-top:-72px;padding:0 16px 88px;position:relative;z-index:3}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;
+  padding:24px;margin-bottom:18px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;animation:fadeSlide .35s ease;
+}
+.card.accent-top::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+h2{font-size:22px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+label{font-weight:700;display:block;margin-bottom:8px}
+
+/* Real Photo Section Banners */
+.sec-banner{
+  display:flex;align-items:center;gap:16px;padding:12px 14px;margin-bottom:18px;
+  border-radius:16px;background:linear-gradient(135deg,var(--teal-soft),var(--gold-soft));
+  border:1px solid var(--line);
+}
+.sec-banner img{
+  width:74px;height:74px;border-radius:14px;object-fit:cover;flex-shrink:0;
+  border:2px solid var(--surface);box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+.sec-banner h2{margin:0 0 2px;font-size:20px}
+.sec-banner p{margin:0;font-size:14.5px;color:var(--muted)}
+
+/* Visual Category Selector Strip */
+.cat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 16px}
+.cat-pill{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:8px;border-radius:14px;border:1.5px solid var(--line);
+  background:var(--surface-alt);color:var(--ink);font-size:13.5px;font-weight:700;
+  text-align:center;transition:all .15s;overflow:hidden;
+}
+.cat-pill:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:var(--shadow)}
+.cat-pill.active{border-color:var(--teal);background:var(--teal-soft);box-shadow:inset 0 0 0 1px var(--teal)}
+.cat-pill img{width:100%;height:56px;object-fit:cover;border-radius:9px;display:block}
+
+/* Inputs & Buttons */
+textarea,input[type="text"],input[type="tel"],input[type="number"],select{
+  width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);
+  border-radius:12px;background:var(--surface-alt);color:var(--ink);
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+textarea{min-height:118px;resize:vertical}
+textarea:focus,input:focus,select:focus{
+  outline:none;border-color:var(--teal);background:var(--surface);
+  box-shadow:0 0 0 4px var(--teal-soft);
+}
+button{font:inherit;cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,var(--teal),#239689);color:#fff;
+  border:0;border-radius:12px;padding:11px 20px;font-weight:700;
+  box-shadow:0 6px 16px rgba(22,121,140,.28);transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(22,121,140,.36)}
+.btn.alt{
+  background:var(--surface-alt);color:var(--ink);border:1.5px solid var(--line);box-shadow:none;
+}
+.btn.alt:hover{border-color:var(--teal);background:var(--teal-soft)}
+.btn.listening{background:linear-gradient(135deg,#d64545,#e66a45);color:#fff;border-color:transparent;animation:pulseRed 1.4s infinite}
+@keyframes pulseRed{50%{box-shadow:0 0 0 8px rgba(214,69,69,.22)}}
+a.btn{text-decoration:none}
+
+.chip{
+  background:var(--surface-alt);border:1px solid var(--line);color:var(--muted);
+  border-radius:99px;padding:6px 13px;font-size:14px;font-weight:600;transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.hint{color:var(--muted);font-size:14.5px;margin:10px 0 0}
+
+/* Secondary Navigation Tabs */
+nav.tabs{
+  display:flex;gap:6px;overflow-x:auto;margin:0 0 18px;padding:6px;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow);scrollbar-width:none;
+}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{
+  white-space:nowrap;background:transparent;color:var(--muted);border:0;
+  border-radius:11px;padding:8px 14px;font-weight:700;font-size:14.5px;transition:all .2s;
+}
+nav.tabs button:hover{color:var(--ink);background:var(--surface-alt)}
+nav.tabs button[aria-current="true"]{
+  background:linear-gradient(135deg,var(--gold),#f0b32c);color:#12231f;
+  box-shadow:0 3px 10px rgba(232,163,23,.32);
+}
+
+/* Form Grid & Badges */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields div.full{grid-column:1/-1}
+.fields small{display:block;color:var(--muted);font-size:13.5px;margin-bottom:5px;font-weight:700}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;
+  font-size:14px;font-weight:700;background:var(--gold-soft);color:var(--ink);
+  border:1px solid rgba(232,163,23,.45);
+}
+.tag{
+  display:inline-block;padding:2px 9px;border-radius:6px;font-size:12.5px;
+  font-weight:700;background:var(--teal-soft);color:var(--teal);margin-bottom:6px;
+}
+.hidden{display:none!important}
+
+/* Photo Attachment Box */
+.photo-box{
+  margin-top:12px;padding:12px;border:1.5px dashed var(--line);border-radius:12px;
+  background:var(--surface-alt);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.photo-prev{max-height:76px;border-radius:8px;border:1px solid var(--line)}
+
+/* Timeline Tracker */
+ol.track{list-style:none;margin:18px 0 0;padding:0 0 0 8px;border-left:3px solid var(--line)}
+ol.track li{position:relative;padding:0 0 20px 24px}
+ol.track li:last-child{padding-bottom:4px}
+ol.track li::before{
+  content:"";position:absolute;left:-11px;top:4px;width:19px;height:19px;
+  border-radius:50%;background:var(--surface);border:3px solid var(--line);
+}
+ol.track li.done::before{background:var(--ok);border-color:var(--ok);box-shadow:0 0 0 4px rgba(36,122,72,.15)}
+ol.track li.now::before{background:var(--gold);border-color:var(--gold);animation:p 1.6s ease-in-out infinite}
+ol.track b{display:block;font-size:16.5px}
+ol.track span{color:var(--muted);font-size:14.5px}
+@keyframes p{50%{box-shadow:0 0 0 8px rgba(232,163,23,.28)}}
+
+/* Services Grid */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.svc button{
+  display:flex;align-items:center;gap:12px;text-align:left;
+  background:var(--surface-alt);border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 14px;color:var(--ink);font-weight:700;transition:all .15s;
+}
+.svc button:hover{transform:translateY(-2px);border-color:var(--teal);background:var(--surface);box-shadow:var(--shadow)}
+.svc button[aria-pressed="true"]{
+  border-color:var(--teal);background:var(--teal-soft);box-shadow:inset 0 0 0 1px var(--teal);
+}
+.svc-ico{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--line);font-size:20px;flex-shrink:0;
+}
+.guide-box{
+  margin-top:18px;padding:18px;border-radius:14px;
+  background:var(--surface-alt);border:1px solid var(--line);
+}
+ol.how{padding-left:20px;margin:10px 0}
+ol.how li{margin-bottom:6px}
+
+/* Scheme Result Cards */
+.sch-card{
+  margin:14px 0 0;padding:16px;border-radius:16px;
+  background:var(--surface-alt);border:1px solid var(--line);
+  display:flex;gap:16px;align-items:flex-start;transition:transform .15s,border-color .15s;
+}
+.sch-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.sch-thumb{width:96px;height:96px;border-radius:12px;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}
+
+/* ================= PORTAL DASHBOARD KPI & BARS ================= */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.stat-box{
+  background:var(--surface-alt);border:1.5px solid var(--line);border-radius:18px;
+  padding:20px 16px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.03);
+}
+.stat-num{font-size:34px;font-weight:800;color:var(--teal);line-height:1.1;display:block}
+.stat-lbl{font-size:14.5px;font-weight:700;color:var(--muted);margin-top:6px;display:block}
+.dept-bar-row{margin-bottom:12px}
+.dept-bar-top{display:flex;justify-content:space-between;font-size:14.5px;font-weight:700;margin-bottom:4px}
+.dept-bar-bg{height:10px;background:var(--surface-alt);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.dept-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px}
+
+/* ================= NEWS / WHAT'S NEW & FAQ ================= */
+.news-item{
+  padding:14px 16px;border-radius:14px;background:var(--surface-alt);
+  border:1px solid var(--line);margin-bottom:12px;
+}
+.news-item h3{margin:4px 0;font-size:17.5px}
+details.faq-item{
+  background:var(--surface-alt);border:1px solid var(--line);
+  border-radius:14px;padding:12px 16px;margin-bottom:10px;
+}
+details.faq-item summary{font-weight:700;cursor:pointer;font-size:16.5px}
+details.faq-item p{margin:8px 0 0;color:var(--muted);font-size:15.5px}
+
+/* User Greeting Bar */
+.hello-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:10px 16px;margin-bottom:14px;box-shadow:var(--shadow);font-weight:700;
+}
+.note{font-size:13.5px;color:var(--muted);text-align:center;max-width:62ch;margin:0 auto}
+
+/* ================= FLOATING CHATBOT WIDGET ================= */
+.chat-fab{
+  position:fixed;right:20px;bottom:20px;z-index:50;
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--pine),var(--teal));
+  color:#fff;border:2px solid rgba(255,227,163,.45);
+  border-radius:99px;padding:12px 18px;font-weight:800;font-size:15.5px;
+  box-shadow:0 12px 28px rgba(8,29,43,.35);transition:transform .2s;
+}
+.chat-fab:hover{transform:translateY(-3px)}
+.chat-win{
+  position:fixed;right:20px;bottom:84px;z-index:55;
+  width:360px;max-width:calc(100vw - 32px);height:480px;max-height:calc(100vh - 110px);
+  background:var(--surface);border:1.5px solid var(--line);border-radius:22px;
+  box-shadow:0 20px 48px rgba(8,29,43,.32);
+  display:flex;flex-direction:column;overflow:hidden;animation:fadeSlide .25s ease;
+}
+.chat-head{
+  background:linear-gradient(135deg,var(--pine),var(--teal));
+  color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;
+}
+.chat-head b{font-size:16px;display:block;line-height:1.2}
+.chat-head span{font-size:12px;color:#cde7e2}
+.chat-close{
+  background:rgba(255,255,255,.16);border:0;color:#fff;
+  width:30px;height:30px;border-radius:8px;font-size:16px;font-weight:700;
+}
+.chat-body{
+  flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;
+  background:var(--surface-alt);
+}
+.msg{max-width:85%;padding:10px 13px;border-radius:15px;font-size:15px;line-height:1.45;word-wrap:break-word}
+.msg.bot{align-self:flex-start;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.user{align-self:flex-end;background:var(--teal);color:#fff;border-bottom-right-radius:4px}
+.msg-act{
+  display:inline-block;margin-top:8px;padding:5px 11px;border-radius:8px;
+  background:var(--gold);color:#12231f;border:0;font-size:13px;font-weight:800;
+}
+.chat-quick{
+  display:flex;gap:6px;overflow-x:auto;padding:8px 12px;
+  background:var(--surface);border-top:1px solid var(--line);scrollbar-width:none;
+}
+.chat-quick::-webkit-scrollbar{display:none}
+.chat-quick button{
+  white-space:nowrap;font-size:12.5px;padding:4px 10px;border-radius:99px;
+  background:var(--teal-soft);color:var(--teal);border:1px solid transparent;font-weight:700;
+}
+.chat-quick button:hover{border-color:var(--teal)}
+.chat-foot{display:flex;gap:8px;padding:10px;background:var(--surface);border-top:1px solid var(--line)}
+.chat-foot input{padding:9px 12px;font-size:15px;border-radius:10px}
+.chat-foot button{padding:9px 14px;border-radius:10px}
+
+@media (max-width:640px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo-card{display:none}
+  .fields,.svc,.stat-grid{grid-template-columns:1fr}
+  .cat-strip{grid-template-columns:repeat(2,1fr)}
+  .sch-card{flex-direction:column}
+  .sch-thumb{width:100%;height:140px}
+  header{padding-bottom:135px}
+  .card{padding:18px}
+  .chat-fab{right:14px;bottom:14px;padding:10px 15px}
+  .chat-win{right:14px;bottom:72px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP NAVBAR (शिकायत | सेवाएँ | डैशबोर्ड | हमारे बारे में | नया क्या है | FAQ | संपर्क) -->
+<div class="top-navbar">
+  <div class="nav-inner">
+    <div class="brand-box"><span class="brand-icon">🏔️</span><span id="brand"></span></div>
+    <div class="nav-links" id="topNavLinks"></div>
+    <div class="controls">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Theme">🌓</button>
+      <span class="lang" role="group" aria-label="Language">
+        <button id="hi" aria-pressed="true">हिन्दी</button>
+        <button id="en" aria-pressed="false">English</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<header>
+  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1400&q=80" alt="" aria-hidden="true" onerror="this.style.display='none'">
+
+  <svg class="peaks" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 220V120L140 60 230 110 340 40 470 120 580 70 700 130 820 50 950 115 1070 65 1200 125 1320 80 1440 120V220Z" fill="#6fa3b5" opacity=".5"/>
+    <path d="M310 62L340 40 370 64 350 58 340 66 328 57Z M792 72L820 50 850 74 832 67 820 76 806 66Z M1044 82L1070 65 1098 84 1082 78 1070 86 1058 77Z" fill="#fff" opacity=".88"/>
+    <path d="M0 220V150L120 100 250 150 400 90 540 155 690 105 840 160 990 95 1130 155 1290 110 1440 150V220Z" fill="#235c66" opacity=".85"/>
+    <path class="f" d="M0 220V175L90 150 180 178 300 140 420 180 560 150 700 185 860 145 1000 182 1150 150 1300 180 1440 160V220Z"/>
+  </svg>
+
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">✨ PRAYAS 2026 • UTTARAKHAND</div>
+        <h1 id="h1"></h1>
+        <p id="sub"></p>
+        <div class="pills">
+          <span class="pill" data-k="ch1"></span>
+          <span class="pill" data-k="ch2"></span>
+          <span class="pill" data-k="ch3"></span>
+        </div>
+      </div>
+
+      <div class="hero-photo-card">
+        <img src="https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&w=400&q=80" alt="Uttarakhand Himalayas" onerror="this.parentElement.style.display='none'">
+        <div class="hero-photo-cap">देवभूमि उत्तराखंड</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap">
+  <!-- Account / Login Gate -->
+  <section class="card accent-top" id="gate">
+    <div class="sec-banner">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=240&q=80" alt="Citizen Portal Login" onerror="this.style.display='none'">
+      <div>
+        <h2 data-k="gateH"></h2>
+        <p data-k="gateP"></p>
+      </div>
+    </div>
+
+    <nav class="tabs" id="gMode" aria-label="Account"></nav>
+    <div class="fields">
+      <div class="co"><small data-k="gName"></small><input id="gN" type="text" autocomplete="name"></div>
+      <div><small data-k="gPhone"></small><input id="gP" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="98XXXXXXXX"></div>
+      <div class="co"><small data-k="gAge"></small><input id="gD" type="number" min="1" max="120" inputmode="numeric"></div>
+      <div class="full co"><small data-k="gAddr"></small><input id="gA" type="text" autocomplete="street-address"></div>
+      <div class="full"><small data-k="gOtp"></small><input id="gO" type="text" inputmode="numeric" maxlength="4" autocomplete="one-time-code" placeholder="1234"></div>
+    </div>
+    <p class="hint" id="gErr" role="alert" style="color:var(--danger);font-weight:700;margin:10px 0 0"></p>
+    <div class="row">
+      <button class="btn" id="gGo" data-k="gGo"></button>
+      <button class="btn alt" id="gSkip" data-k="gSkip"></button>
+    </div>
+    <p class="hint" data-k="gPriv"></p>
+  </section>
+
+  <!-- Main App -->
+  <div id="app" class="hidden">
+    <div class="hello-bar" id="helloBar">
+      <span id="hello"></span>
+      <button class="chip" id="switchUser" data-k="gSwitch" style="padding:4px 10px;font-size:13px"></button>
+    </div>
+
+    <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+
+    <!-- Tab 1: Complain (शिकायत) -->
+    <div id="p-complain">
+      <section class="card accent-top" id="step1">
+        <div class="sec-banner">
+          <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=240&q=80" alt="Voice and Text Complaint" onerror="this.style.display='none'">
+          <div>
+            <h2 id="lbl" style="margin:0 0 2px"></h2>
+            <p id="hint"></p>
+          </div>
+        </div>
+
+        <div class="cat-strip" id="catStrip"></div>
+        <textarea id="txt"></textarea>
+
+        <div class="photo-box">
+          <label for="photoIn" style="margin:0;cursor:pointer;font-size:15px;color:var(--teal)" id="photoLbl">📷 फोटो जोड़ें (वैकल्पिक)</label>
+          <input id="photoIn" type="file" accept="image/*" class="hidden">
+          <img id="photoPrev" class="photo-prev hidden" alt="Attached preview">
+        </div>
+
+        <div class="row">
+          <button class="btn" id="go"></button>
+          <button class="btn alt" id="mic"></button>
+          <span id="micmsg" class="hint" style="margin:0;font-weight:600"></span>
+        </div>
+        <div class="row" id="chips"></div>
+      </section>
+
+      <section class="card accent-top hidden" id="step2" aria-live="polite">
+        <h2 id="h2a"></h2>
+        <p style="margin:0 0 14px"><span class="badge" id="cat"></span> <span id="dept" class="hint" style="margin-left:6px;font-weight:600"></span></p>
+        <div class="fields">
+          <div><small id="f1"></small><select id="catSel"></select></div>
+          <div><small id="f2"></small><select id="urg"></select></div>
+          <div><small id="fDist"></small><select id="distSel"></select></div>
+          <div><small id="f3"></small><input id="place" type="text"></div>
+          <div class="full"><small id="f4"></small><input id="summ" type="text"></div>
+        </div>
+        <div class="row">
+          <button class="btn" id="submit"></button>
+          <button class="btn alt" id="back"></button>
+        </div>
+      </section>
+
+      <section class="card accent-top hidden" id="step3" aria-live="polite">
+        <h2 id="h2b"></h2>
+        <p id="tid" style="margin:4px 0 0;font-weight:800;font-size:26px;color:var(--teal)"></p>
+        <ol class="track" id="track"></ol>
+        <div class="row"><button class="btn alt" id="newBtn" data-k="newC"></button></div>
+      </section>
+    </div>
+
+    <!-- Tab 2: Services (सेवाएँ) -->
+    <section class="card accent-top hidden" id="p-svc">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=240&q=80" alt="Government Certificates" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="svcH"></h2>
+          <p data-k="svcSub"></p>
+        </div>
+      </div>
+
+      <p style="margin:0 0 16px"><a class="btn" data-k="openAS" href="https://eservices.uk.gov.in/" target="_blank" rel="noopener noreferrer"></a></p>
+      <div class="svc" id="svcList"></div>
+      <div id="svcOut" class="guide-box hidden">
+        <h2 id="svcT" style="font-size:19px;color:var(--teal)"></h2>
+        <ol class="how" id="svcS"></ol>
+        <p class="hint" data-k="svcFee"></p>
+      </div>
+      <p class="hint" data-k="src"></p>
+    </section>
+
+    <!-- Tab 3: Portal Dashboard (डैशबोर्ड — matching screenshot) -->
+    <section class="card accent-top hidden" id="p-dashboard">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=240&q=80" alt="Portal Dashboard Analytics" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="dashH"></h2>
+          <p data-k="dashSub"></p>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-box">
+          <span class="stat-num" id="dashTotal">1,250+</span>
+          <span class="stat-lbl" data-k="dashStat1"></span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" style="color:var(--ok)">96.4%</span>
+          <span class="stat-lbl" data-k="dashStat2"></span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" style="color:var(--gold)">13</span>
+          <span class="stat-lbl" data-k="dashStat3"></span>
+        </div>
+      </div>
+
+      <h3 style="margin:18px 0 10px;font-size:18px" data-k="dashDeptH"></h3>
+      <div id="dashBars"></div>
+    </section>
+
+    <!-- Tab 4: Schemes (योजनाएँ) -->
+    <section class="card accent-top hidden" id="p-schemes">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=240&q=80" alt="Welfare Schemes" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="schH"></h2>
+          <p data-k="schP"></p>
+        </div>
+      </div>
+
+      <div class="fields">
+        <div><small data-k="qAge"></small><input id="qAge" type="number" min="0" max="120" inputmode="numeric"></div>
+        <div><small data-k="qWho"></small><select id="qWho"></select></div>
+        <div class="full"><label style="font-weight:600;margin:0;cursor:pointer"><input type="checkbox" id="qDis" style="width:auto;margin-right:6px"> <span data-k="qDis"></span></label></div>
+        <div class="full"><label style="font-weight:600;margin:0;cursor:pointer"><input type="checkbox" id="qWid" style="width:auto;margin-right:6px"> <span data-k="qWid"></span></label></div>
+        <div class="full"><label style="font-weight:600;margin:0;cursor:pointer"><input type="checkbox" id="qGirl" style="width:auto;margin-right:6px"> <span data-k="qGirl"></span></label></div>
+      </div>
+      <div class="row"><button class="btn" id="sgo" data-k="schGo"></button></div>
+      <div id="schOut" aria-live="polite"></div>
+      <p class="hint" data-k="schNote"></p>
+    </section>
+
+    <!-- Tab 5: Track (स्थिति देखें) -->
+    <section class="card accent-top hidden" id="p-trk">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=240&q=80" alt="Track Status" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="trkH"></h2>
+          <p data-k="trkNote"></p>
+        </div>
+      </div>
+
+      <label for="tin" data-k="trkL"></label>
+      <input id="tin" type="text" placeholder="UK-2026-XXXXX">
+      <div class="row"><button class="btn" id="tgo" data-k="trkGo"></button></div>
+      <ol class="track hidden" id="track2"></ol>
+    </section>
+
+    <!-- Tab 6: About Us (हमारे बारे में) -->
+    <section class="card accent-top hidden" id="p-about">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=240&q=80" alt="About Team TechSarthi" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="abtH"></h2>
+          <p data-k="abtSub"></p>
+        </div>
+      </div>
+      <p data-k="abtP1"></p>
+      <p data-k="abtP2"></p>
+      <div class="stat-grid" style="margin-top:16px">
+        <div class="stat-box"><span class="stat-num" style="font-size:24px">🎙️ Voice</span><span class="stat-lbl" data-k="abtF1"></span></div>
+        <div class="stat-box"><span class="stat-num" style="font-size:24px">🏛️ 13</span><span class="stat-lbl" data-k="abtF2"></span></div>
+        <div class="stat-box"><span class="stat-num" style="font-size:24px">⚖️ RTS</span><span class="stat-lbl" data-k="abtF3"></span></div>
+      </div>
+    </section>
+
+    <!-- Tab 7: What's New (नया क्या है) -->
+    <section class="card accent-top hidden" id="p-news">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=240&q=80" alt="What's New" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="newsH"></h2>
+          <p data-k="newsSub"></p>
+        </div>
+      </div>
+      <div id="newsList"></div>
+    </section>
+
+    <!-- Tab 8: FAQ -->
+    <section class="card accent-top hidden" id="p-faq">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=240&q=80" alt="FAQ" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="faqH"></h2>
+          <p data-k="faqSub"></p>
+        </div>
+      </div>
+      <div id="faqList"></div>
+    </section>
+
+    <!-- Tab 9: Contact & Help (संपर्क) -->
+    <section class="card accent-top hidden" id="p-help">
+      <div class="sec-banner">
+        <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=240&q=80" alt="Citizen Helpdesk" onerror="this.style.display='none'">
+        <div>
+          <h2 data-k="hlpH"></h2>
+          <p data-k="hlp1"></p>
+        </div>
+      </div>
+      <p data-k="hlp2"></p>
+      <p><a class="btn alt" data-k="openAS" href="https://eservices.uk.gov.in/" target="_blank" rel="noopener noreferrer"></a></p>
+      <h2 data-k="appH" style="margin-top:22px"></h2>
+      <p data-k="app1"></p>
+      <p class="hint" data-k="src"></p>
+    </section>
+  </div>
+
+  <p class="note" id="note"></p>
+  <p class="note" style="margin-top:8px"><b>Team TechSarthi</b> – PRAYAS 2026, Uttarakhand Web &amp; Mobile App Hackathon</p>
+</div></main>
+
+<!-- ================= AI CHATBOT WIDGET (पहाड़ी सहायक AI) ================= -->
+<button class="chat-fab" id="chatFab" aria-label="Open Assistant">
+  🏔️ <span id="chatFabTxt">पहाड़ी सहायक AI</span>
+</button>
+
+<div class="chat-win hidden" id="chatWin" role="dialog" aria-label="Pahadi Sahayak AI">
+  <div class="chat-head">
+    <div>
+      <b id="chatTitle">🏔️ पहाड़ी सहायक AI</b>
+      <span id="chatSub">ऑनलाइन • हिन्दी / English</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-quick" id="chatQuick"></div>
+  <div class="chat-foot">
+    <input id="chatIn" type="text" placeholder="यहाँ अपना सवाल लिखें…">
+    <button class="btn" id="chatSend" aria-label="Send">➤</button>
+  </div>
+</div>
+
+<script>
+var L={hi:{
+  brand:"शिकायत साथी",h1:"बोलिए या लिखिए। बाक़ी हम सँभालेंगे।",
+  sub:"अपनी समस्या अपनी भाषा में बताइए। हम सही विभाग, ज़रूरी जानकारी और स्थिति की सरल सूचना तैयार करते हैं।",
+  lbl:"आपकी समस्या क्या है?",go:"✨ शिकायत समझें",mic:"🎤 बोलकर बताएँ",
+  photo:"📷 फोटो जोड़ें (वैकल्पिक)",photoOk:"✅ फोटो जुड़ गई",
+  hint:"फ़ॉर्म की श्रेणियाँ और विभाग नहीं चुनने पड़ेंगे। आप बस अपनी बात लिखें।",
+  h2a:"हमने ऐसा समझा। कृपया जाँच लें।",f1:"श्रेणी",f2:"कितना ज़रूरी?",fDist:"ज़िला",f3:"स्थान / मोहल्ला",f4:"सारांश",
+  submit:"🚀 शिकायत दर्ज करें",back:"✏️ बदलें",newC:"+ नई शिकायत दर्ज करें",
+  h2b:"आपकी शिकायत दर्ज हो गई (डेमो)",
+  nav_complain:"शिकायत",nav_svc:"सेवाएँ",nav_dashboard:"डैशबोर्ड",nav_schemes:"योजनाएँ",nav_trk:"स्थिति",nav_about:"हमारे बारे में",nav_news:"नया क्या है",nav_faq:"FAQ",nav_help:"संपर्क",
+  svcH:"आप कौन-सी सेवा चाहते हैं?",svcSub:"प्रमाण पत्र और सरकारी सेवाओं की पूरी प्रक्रिया सरल हिन्दी में देखें।",openAS:"Apuni Sarkar वेबसाइट खोलें ↗",
+  dashH:"पोर्टल डैशबोर्ड (Dashboard)",dashSub:"रीयल-टाइम पोर्टल आँकड़े और विभागवार शिकायत समाधान स्थिति",
+  dashStat1:"कुल दर्ज शिकायतें",dashStat2:"समय पर समाधान दर",dashStat3:"सक्रिय उत्तराखंड ज़िले",
+  dashDeptH:"विभागवार समाधान प्रगति",
+  abtH:"हमारे बारे में (Team TechSarthi)",abtSub:"उत्तराखंड के नागरिकों और शासन के बीच सरल डिजिटल सेतु",
+  abtP1:"शिकायत साथी को PRAYAS 2026 के अंतर्गत इस उद्देश्य से बनाया गया है कि पहाड़ और मैदान के हर नागरिक को सरकारी सेवाएँ व शिकायत निवारण अपनी सहज भाषा (हिन्दी/अंग्रेज़ी) में मिल सकें।",
+  abtP2:"बिना जटिल फ़ॉर्म या अंग्रेज़ी शब्दावली के, नागरिक बोलकर या लिखकर अपनी समस्या सीधे सही विभाग तक पहुँचा सकते हैं और पात्र योजनाओं की जानकारी पा सकते हैं।",
+  abtF1:"आवाज़ से शिकायत",abtF2:"सभी 13 ज़िले",abtF3:"सेवा का अधिकार",
+  newsH:"नया क्या है (What's New)",newsSub:"उत्तराखंड नागरिक सेवाओं और पोर्टल के नवीनतम अपडेट",
+  faqH:"अक्सर पूछे जाने वाले प्रश्न (FAQ)",faqSub:"शिकायत दर्ज करने, प्रमाण पत्र और अपील से जुड़े सामान्य सवाल",
+  gateH:"लॉग इन करें",gateP:"अपनी जानकारी भरें ताकि शिकायत और योजनाएँ आपके हिसाब से दिखें।",
+  gName:"नाम",gPhone:"मोबाइल नंबर (10 अंक)",gAge:"उम्र",gAddr:"पता / गाँव (ज़रूरी नहीं)",
+  gGo:"आगे बढ़ें →",gSkip:"अभी छोड़ें",gSwitch:"खाता बदलें",
+  gErr:"कृपया नाम, 10 अंकों का मोबाइल नंबर और सही उम्र भरें।",
+  gPriv:"यह डेमो है। खाता सिर्फ़ इसी ब्राउज़र में सहेजा जाता है और कहीं नहीं भेजा जाता।",
+  hello:"🙏 नमस्ते, ",guest:"🙏 नमस्ते, अतिथि",
+  ch1:"🌐 हिन्दी और अंग्रेज़ी",ch2:"🎙️ बोलकर शिकायत",ch3:"🎯 छूटी हुई योजनाएँ",
+  gLogin:"लॉग इन",gCreate:"नया खाता बनाएँ",gOtp:"OTP (डेमो: 1234)",
+  gNoAcc:"इस नंबर से कोई खाता नहीं मिला। पहले नया खाता बनाएँ।",
+  gBadOtp:"OTP सही नहीं है। डेमो में 1234 डालें।",
+  gExists:"इस नंबर से खाता पहले से है। लॉग इन करें।",
+  schH:"ऐसी योजनाएँ जिनका आपको पता न हो",schP:"कुछ बातें बताइए। हम वे सरकारी योजनाएँ दिखाएँगे जिनके लिए आप पात्र हो सकते हैं।",
+  qAge:"आपकी उम्र",qWho:"आप क्या करते हैं?",qDis:"मुझे 40% या उससे ज़्यादा दिव्यांगता है",qWid:"मैं विधवा हूँ",qGirl:"मेरे परिवार में बेटी है",
+  schGo:"योजनाएँ दिखाएँ",schAge:"कृपया अपनी उम्र लिखें।",schNone:"अभी कोई योजना नहीं मिली। जानकारी बदलकर देखें।",
+  schLink:"आधिकारिक साइट खोलें ↗",
+  schNote:"यह सार्वजनिक सूचियों पर आधारित अनुमान है, आधिकारिक पात्रता जाँच नहीं। राशि और शर्तें बदलती रहती हैं, इसलिए आवेदन से पहले आधिकारिक साइट पर पुष्टि करें।",
+  svcSteps:["Apuni Sarkar (eservices.uk.gov.in) पर आधार और मोबाइल नंबर से लॉग इन करें","पहले दस्तावेज़ अपलोड करें, फिर फ़ॉर्म भरें","सेवा के साथ दिखाई गई फीस और समय-सीमा देखें","आवेदन संख्या सँभालकर रखें, स्थिति देखें और जारी होने पर प्रमाण पत्र डाउनलोड करें"],
+  svcFee:"दस्तावेज़ों की सटीक सूची, फीस और समय-सीमा के लिए पोर्टल पर उस सेवा का पेज देखें।",
+  trkH:"आवेदन या शिकायत की स्थिति",trkL:"आवेदन / शिकायत संख्या",trkGo:"स्थिति दिखाएँ",
+  trkNote:"डेमो में दर्ज की गई शिकायत का नंबर ऊपर डालकर विवरण देखें।",
+  hlpH:"संपर्क एवं हेल्पडेस्क",hlp1:"Apuni Sarkar हेल्पडेस्क: 1905 डायल करें और 4 दबाएँ।",hlp2:"ईमेल: e-helpdesk@uk.gov.in | पता: आईटी पार्क, देहरादून, उत्तराखंड",
+  appH:"देरी हो या आवेदन रद्द हो जाए तो",app1:"उत्तराखंड सेवा का अधिकार अधिनियम, 2011 के तहत अधिसूचित सेवा में देरी या अस्वीकृति पर अपील की जा सकती है। जानकारी: urtsc.uk.gov.in",
+  src:"यह जानकारी Apuni Sarkar के सार्वजनिक विवरणों पर आधारित है। उपयोग से पहले आधिकारिक साइट पर जाँच लें।",
+  note:"यह एक विद्यार्थी कॉन्सेप्ट प्रोटोटाइप है। यह किसी सरकारी वेबसाइट से जुड़ा नहीं है और कोई जानकारी कहीं नहीं भेजता।",
+  ph:"जैसे: राजपुर रोड मोहल्ले में तीन दिन से पानी नहीं आ रहा…",dept:"संभावित विभाग: ",
+  nomic:"इस ब्राउज़र में बोलना उपलब्ध नहीं है। कृपया लिखें।",listen:"सुन रहे हैं… बोलिए",
+  urg:["🟢 सामान्य","🟠 ज़रूरी","🔴 बहुत ज़रूरी"],empty:"पहले अपनी समस्या लिखें।",
+  steps:[["शिकायत मिली","अभी दर्ज हुई"],["विभाग को भेजी गई","अगले कुछ घंटों में"],["काम जारी","आपको SMS से सूचना मिलेगी"],["हल हुई","आपसे पुष्टि माँगी जाएगी"]],
+  chatFab:"पहाड़ी सहायक AI",chatTitle:"🏔️ पहाड़ी सहायक AI",chatSub:"ऑनलाइन • हिन्दी / English",chatPh:"यहाँ अपना सवाल लिखें…"
+},
+en:{
+  brand:"Shikayat Saathi",h1:"Say it or type it. We’ll handle the rest.",
+  sub:"Describe your problem in your own language. We prepare the right department, the details needed, and plain-language status updates.",
+  lbl:"What is the problem?",go:"✨ Understand my complaint",mic:"🎤 Speak instead",
+  photo:"📷 Attach photo (optional)",photoOk:"✅ Photo attached",
+  hint:"No need to pick categories or departments from a long form. Just say what happened.",
+  h2a:"Here’s what we understood. Please check it.",f1:"Category",f2:"How urgent?",fDist:"District",f3:"Location / Locality",f4:"Summary",
+  submit:"🚀 File complaint",back:"✏️ Edit",newC:"+ File another complaint",
+  h2b:"Complaint filed (demo)",
+  nav_complain:"Complaint",nav_svc:"Services",nav_dashboard:"Dashboard",nav_schemes:"Schemes",nav_trk:"Track",nav_about:"About Us",nav_news:"What's New",nav_faq:"FAQ",nav_help:"Contact",
+  svcH:"Which service do you need?",svcSub:"Step-by-step guidance for Uttarakhand certificates and citizen services.",openAS:"Open Apuni Sarkar website ↗",
+  dashH:"Portal Dashboard",dashSub:"Real-time portal statistics and department-wise resolution metrics",
+  dashStat1:"Total Complaints Filed",dashStat2:"On-Time Resolution Rate",dashStat3:"Active Uttarakhand Districts",
+  dashDeptH:"Department-wise Resolution Progress",
+  abtH:"About Us (Team TechSarthi)",abtSub:"Bridging citizens and governance across Uttarakhand",
+  abtP1:"Shikayat Saathi was built for PRAYAS 2026 so every citizen across Uttarakhand’s hills and plains can access public services and grievance redressal in their own language.",
+  abtP2:"Without complex forms or bureaucratic jargon, citizens can speak or type their issue for instant department routing and personalized welfare scheme discovery.",
+  abtF1:"Voice-First Filing",abtF2:"All 13 Districts",abtF3:"Right to Service",
+  newsH:"What's New",newsSub:"Latest updates on Uttarakhand citizen services and portal features",
+  faqH:"Frequently Asked Questions (FAQ)",faqSub:"Common queries about filing complaints, certificates, and appeals",
+  gateH:"Log in",gateP:"Add your details so complaints and schemes are matched to you.",
+  gName:"Name",gPhone:"Mobile number (10 digits)",gAge:"Age",gAddr:"Address / Village (optional)",
+  gGo:"Continue →",gSkip:"Skip for now",gSwitch:"Switch account",
+  gErr:"Please enter your name, a 10-digit mobile number and a valid age.",
+  gPriv:"This is a demo. Your account is saved only in this browser and is not sent anywhere.",
+  hello:"🙏 Hello, ",guest:"🙏 Hello, Guest",
+  ch1:"🌐 Hindi & English",ch2:"🎙️ Voice complaints",ch3:"🎯 Schemes you may miss",
+  gLogin:"Log in",gCreate:"Create account",gOtp:"OTP (demo: 1234)",
+  gNoAcc:"No account found for this number. Please create an account first.",
+  gBadOtp:"Incorrect OTP. In this demo, enter 1234.",
+  gExists:"An account already exists for this number. Please log in.",
+  schH:"Schemes you may not know about",schP:"Tell us a few things. We’ll show government schemes you may be eligible for.",
+  qAge:"Your age",qWho:"What do you do?",qDis:"I have a disability of 40% or more",qWid:"I am a widow",qGirl:"There is a daughter in my family",
+  schGo:"Show schemes",schAge:"Please enter your age.",schNone:"No schemes found yet. Try changing your details.",
+  schLink:"Open official site ↗",
+  schNote:"These are estimates from public listings, not an official eligibility check. Amounts and rules change, so confirm on the official site before applying.",
+  svcSteps:["Log in at eservices.uk.gov.in (Apuni Sarkar) with your Aadhaar and mobile number","Upload your documents first, then fill in the form","Check the fee and time limit shown beside the service","Keep your application number, track the status, and download the certificate once issued"],
+  svcFee:"For the exact document list, fee and time limit, open that service’s page on the portal.",
+  trkH:"Application or complaint status",trkL:"Application / complaint number",trkGo:"Show status",
+  trkNote:"Enter the demo complaint ID generated after filing to inspect its live record.",
+  hlpH:"Contact & Helpdesk",hlp1:"Apuni Sarkar helpdesk: dial 1905 and press 4.",hlp2:"Email: e-helpdesk@uk.gov.in | Address: IT Park, Dehradun, Uttarakhand",
+  appH:"If a service is delayed or rejected",app1:"Under the Uttarakhand Right to Service Act, 2011, you can appeal when a notified service is delayed or rejected. Details: urtsc.uk.gov.in",
+  src:"Based on public information about Apuni Sarkar. Please verify on the official site before relying on it.",
+  note:"This is a student concept prototype. It is not connected to any government website and sends no data anywhere.",
+  ph:"For example: There has been no water in Rajpur lane for three days…",dept:"Likely department: ",
+  nomic:"Speech input isn’t available in this browser. Please type.",listen:"Listening… speak now",
+  urg:["🟢 Normal","🟠 Urgent","🔴 Very urgent"],empty:"Please describe the problem first.",
+  steps:[["Complaint received","Logged just now"],["Sent to the department","Within a few hours"],["Work in progress","You’ll get an SMS update"],["Resolved","You’ll be asked to confirm"]],
+  chatFab:"Pahadi Sahayak AI",chatTitle:"🏔️ Pahadi Sahayak AI",chatSub:"Online • Hindi / English",chatPh:"Ask anything here…"
+}};
+
+var DISTRICTS=["Dehradun","Haridwar","Nainital","Almora","Pauri Garhwal","Tehri Garhwal","Udham Singh Nagar","Chamoli","Uttarkashi","Pithoragarh","Bageshwar","Champawat","Rudraprayag"];
+
+var C=[
+  {
+    k:"water",hi:"💧 पानी / जल आपूर्ति",en:"💧 Water supply",d:"Jal Sansthan / Jal Nigam",
+    w:["पानी","जल","नल","पाइप","water","tap","pipe","supply"],
+    img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=300&q=75"
+  },
+  {
+    k:"road",hi:"🛣️ सड़क / मार्ग",en:"🛣️ Roads",d:"PWD Uttarakhand",
+    w:["सड़क","गड्ढा","गड्ढे","पुल","रास्ता","road","pothole","bridge","landslide","भूस्खलन"],
+    img:"https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=300&q=75"
+  },
+  {
+    k:"power",hi:"⚡ बिजली",en:"⚡ Electricity",d:"UPCL",
+    w:["बिजली","लाइट","बत्ती","तार","ट्रांसफार्मर","electric","power","light","transformer","wire"],
+    img:"https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=300&q=75"
+  },
+  {
+    k:"health",hi:"🏥 स्वास्थ्य",en:"🏥 Health",d:"Health Department",
+    w:["अस्पताल","डॉक्टर","दवा","एम्बुलेंस","बीमार","hospital","doctor","medicine","ambulance","clinic"],
+    img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=300&q=75"
+  },
+  {
+    k:"waste",hi:"🧹 सफ़ाई / कचरा",en:"🧹 Sanitation",d:"Urban / Rural Local Body",
+    w:["कचरा","गंदगी","नाली","सफ़ाई","सफाई","garbage","waste","drain","sewage","dirty"],
+    img:"https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=300&q=75"
+  },
+  {
+    k:"other",hi:"📋 अन्य",en:"📋 Other",d:"District Administration",w:[],
+    img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=75"
+  }
+];
+
+var lang="hi",cur=null,quickCat=null,$=function(i){return document.getElementById(i)};
+var EX={
+  hi:["तीन दिन से पानी नहीं आ रहा","सड़क पर बड़ा गड्ढा है, बहुत ख़तरनाक","रात से बिजली गुल है"],
+  en:["No water for three days","Big pothole on the main road, dangerous","Power has been out since last night"]
+};
+function t(){return L[lang]}
+
+$("themeBtn").onclick=function(){
+  var r=document.documentElement;
+  var dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);
+  r.setAttribute("data-theme",dark?"light":"dark");
+};
+
+function drawCatStrip(){
+  var box=$("catStrip");box.innerHTML="";
+  C.forEach(function(c,i){
+    var b=document.createElement("button");
+    b.type="button";
+    b.className="cat-pill"+(quickCat===i?" active":"");
+    b.innerHTML='<img src="'+c.img+'" alt="" onerror="this.style.display=\'none\'"><span>'+c[lang]+'</span>';
+    b.onclick=function(){
+      quickCat=(quickCat===i?null:i);
+      drawCatStrip();
+      if(!$("txt").value.trim()&&EX[lang][i])$("txt").value=EX[lang][i];
+    };
+    box.appendChild(b);
+  });
+}
+
+function drawDashboard(){
+  var savedCount=0;
+  try{savedCount=Object.keys(JSON.parse(localStorage.getItem("ts_complaints")||"{}")).length}catch(e){}
+  $("dashTotal").textContent=(1250+savedCount).toLocaleString("en-IN")+"+";
+
+  var depts=[
+    ["Jal Sansthan (पेयजल)",97],
+    ["UPCL (विद्युत विभाग)",98],
+    ["PWD Uttarakhand (लोक निर्माण)",94],
+    ["Nagar Nigam / Local Body",95],
+    ["Health & Revenue Services",97]
+  ];
+  $("dashBars").innerHTML=depts.map(function(d){
+    return '<div class="dept-bar-row"><div class="dept-bar-top"><span>'+d[0]+'</span><span style="color:var(--teal)">'+d[1]+'%</span></div><div class="dept-bar-bg"><div class="dept-bar-fill" style="width:'+d[1]+'%"></div></div></div>';
+  }).join("");
+}
+
+function drawNewsAndFaq(){
+  var i2=lang==="hi"?0:1;
+  var news=[
+    ["नया अपडेट • 2026",["पहाड़ी सहायक AI व वॉइस शिकायत सुविधा शुरू","Pahadi Sahayak AI & Voice Filing Launched"],["अब नागरिक बिना टाइप किए बोलकर अपनी शिकायत दर्ज कर सकते हैं और चैटबॉट से लाइव स्टेटस जान सकते हैं।","Citizens can now file complaints by voice and check live status via Pahadi Sahayak AI."]],
+    ["सेवा विस्तार",["Apuni Sarkar की 75+ सेवाएँ एक ही जगह","75+ Apuni Sarkar Services Integrated"],["निवास, आय, जाति और जन्म-मृत्यु प्रमाण पत्र की चरणबद्ध गाइड और सीधा पोर्टल लिंक जोड़ा गया है।","Step-by-step guides and direct portal links added for Domicile, Income, Caste, and Birth/Death certificates."]],
+    ["कल्याण योजनाएँ",["नंदा गौरा और अटल आयुष्मान पात्रता जाँच","Nanda Gaura & Atal Ayushman Eligibility Check"],["अपनी उम्र और परिवार की जानकारी डालकर तुरंत पात्र सरकारी योजनाओं की सूची देखें।","Check eligible state welfare schemes instantly based on age and household details."]]
+  ];
+  $("newsList").innerHTML=news.map(function(n){
+    return '<div class="news-item"><span class="tag">'+n[0]+'</span><h3>'+n[1][i2]+'</h3><p style="margin:4px 0 0;color:var(--muted)">'+n[2][i2]+'</p></div>';
+  }).join("");
+
+  var faqs=[
+    [["क्या शिकायत दर्ज करने के लिए लॉग इन अनिवार्य है?","Is login mandatory to file a complaint?"],["नहीं, आप 'अभी छोड़ें' दबाकर अतिथि (Guest) के रूप में भी तुरंत शिकायत दर्ज कर सकते हैं।","No, you can click 'Skip for now' and file a complaint immediately as a Guest."]],
+    [["शिकायत संख्या (Tracking ID) कहाँ मिलेगी?","Where do I find my Tracking ID?"],["शिकायत जमा करते ही UK-2026-XXXXX नंबर स्क्रीन पर दिखता है, जिससे आप 'स्थिति' टैब या चैटबॉट में स्टेटस देख सकते हैं।","Upon submitting, a UK-2026-XXXXX ID appears on screen which you can track in the Track tab or Chatbot."]],
+    [["यदि तय समय में समाधान न हो तो क्या करें?","What if my issue is not resolved on time?"],["उत्तराखंड सेवा का अधिकार अधिनियम, 2011 के तहत आप 1905 हेल्पडेस्क या urtsc.uk.gov.in पर अपील कर सकते हैं।","Under the Uttarakhand Right to Service Act, 2011, you can escalate via 1905 or urtsc.uk.gov.in."]]
+  ];
+  $("faqList").innerHTML=faqs.map(function(f,idx){
+    return '<details class="faq-item"'+(idx===0?' open':'')+'><summary>'+f[0][i2]+'</summary><p>'+f[1][i2]+'</p></details>';
+  }).join("");
+}
+
+function render(){
+  var s=t();document.documentElement.lang=lang;
+  ["brand","h1","sub","lbl","go","mic","hint","h2a","f1","f2","fDist","f3","f4","submit","back","h2b","note"].forEach(function(i){$(i).textContent=s[i]});
+  $("txt").placeholder=s.ph;
+  $("photoLbl").textContent=$("photoPrev").classList.contains("hidden")?s.photo:s.photoOk;
+  $("chatFabTxt").textContent=s.chatFab;
+  $("chatTitle").textContent=s.chatTitle;
+  $("chatSub").textContent=s.chatSub;
+  $("chatIn").placeholder=s.chatPh;
+  drawChatQuick();
+
+  document.querySelectorAll("[data-k]").forEach(function(e){e.textContent=s[e.getAttribute("data-k")]});
+  drawCatStrip();drawTabs();drawSvc();drawDashboard();drawSch();drawNewsAndFaq();drawHello();drawMode();
+  if(!$("track2").classList.contains("hidden"))$("tgo").click();
+  $("hi").setAttribute("aria-pressed",lang==="hi");$("en").setAttribute("aria-pressed",lang==="en");
+
+  $("chips").innerHTML="";
+  EX[lang].forEach(function(x){
+    var b=document.createElement("button");b.className="chip";b.textContent=x;
+    b.onclick=function(){$("txt").value=x};$("chips").appendChild(b);
+  });
+
+  $("catSel").innerHTML="";
+  C.forEach(function(c,i){var o=document.createElement("option");o.value=i;o.textContent=c[lang];$("catSel").appendChild(o)});
+
+  $("urg").innerHTML="";
+  s.urg.forEach(function(u,i){var o=document.createElement("option");o.value=i;o.textContent=u;$("urg").appendChild(o)});
+
+  var dv=$("distSel").value||"Dehradun";
+  $("distSel").innerHTML="";
+  DISTRICTS.forEach(function(d){var o=document.createElement("option");o.value=d;o.textContent=d;$("distSel").appendChild(o)});
+  $("distSel").value=dv;
+
+  if(cur){fill();track()}
+}
+
+function classify(x){
+  if(quickCat!==null)return quickCat;
+  var q=x.toLowerCase(),best=C.length-1,n=0;
+  C.forEach(function(c,i){var h=c.w.filter(function(w){return q.indexOf(w)>-1}).length;if(h>n){n=h;best=i}});
+  return best;
+}
+function urgency(x){
+  var q=x.toLowerCase();
+  if(/(आग|दुर्घटना|accident|fire|emergency|ख़तरनाक|खतरनाक|dangerous)/.test(q))return 2;
+  if(/(दिन|रात|days|night|since)/.test(q))return 1;
+  return 0;
+}
+function place(x){
+  var m1=x.match(/(?:in|at|near|मोहल्ले|गाँव|गांव|वार्ड)\s+([^\s,.]+(?:\s[^\s,.]+)?)/i);
+  if(m1)return m1[1];
+  var m2=x.match(/([^\s,.]+(?:\s[^\s,.]+)?)\s+(?:मोहल्ले|गाँव|गांव|वार्ड)/i);
+  return m2?m2[1]:"";
+}
+function fill(){
+  var c=C[cur.cat],d=$("distSel").value;
+  $("cat").textContent=c[lang];
+  $("dept").textContent=t().dept+c.d+" ("+d+")";
+  $("catSel").value=cur.cat;$("urg").value=cur.urg;$("place").value=cur.place;$("summ").value=cur.text.slice(0,120);
+}
+function track(){
+  var s=t().steps;
+  $("track").innerHTML=s.map(function(x,i){return '<li class="'+(i===0?'done':i===1?'now':'')+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
+}
+
+$("photoIn").onchange=function(e){
+  var f=e.target.files&&e.target.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(ev){$("photoPrev").src=ev.target.result;$("photoPrev").classList.remove("hidden");$("photoLbl").textContent=t().photoOk};
+  r.readAsDataURL(f);
+};
+
+$("hi").onclick=function(){lang="hi";render()};
+$("en").onclick=function(){lang="en";render()};
+$("go").onclick=function(){
+  var x=$("txt").value.trim();
+  if(!x){$("micmsg").textContent=t().empty;return}
+  $("micmsg").textContent="";
+  cur={text:x,cat:classify(x),urg:urgency(x),place:place(x)||(user?user.addr:"")};
+  fill();$("step1").classList.add("hidden");$("step2").classList.remove("hidden");$("step2").scrollIntoView({block:"start"});
+};
+$("back").onclick=function(){$("step2").classList.add("hidden");$("step1").classList.remove("hidden")};
+$("catSel").onchange=function(){cur.cat=+$("catSel").value;fill()};
+$("distSel").onchange=fill;
+$("urg").onchange=function(){cur.urg=+$("urg").value};
+
+$("submit").onclick=function(){
+  var d=new Date(),id="UK-"+d.getFullYear()+"-"+String(Math.floor(Math.random()*90000)+10000);
+  try{
+    var all=JSON.parse(localStorage.getItem("ts_complaints")||"{}");
+    all[id]={id:id,cat:cur.cat,dist:$("distSel").value,place:$("place").value.trim(),summ:$("summ").value.trim()};
+    localStorage.setItem("ts_complaints",JSON.stringify(all));
+  }catch(e){}
+  drawDashboard();
+  $("tid").textContent="#"+id;$("tin").value=id;
+  track();$("step2").classList.add("hidden");$("step3").classList.remove("hidden");$("step3").scrollIntoView({block:"start"});
+};
+$("newBtn").onclick=function(){
+  $("txt").value="";quickCat=null;drawCatStrip();
+  $("photoPrev").classList.add("hidden");$("photoLbl").textContent=t().photo;
+  $("step3").classList.add("hidden");$("step1").classList.remove("hidden");
+};
+
+$("mic").onclick=function(){
+  var R=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!R){$("micmsg").textContent=t().nomic;return}
+  try{
+    var r=new R();r.lang=lang==="hi"?"hi-IN":"en-IN";
+    $("mic").classList.add("listening");
+    r.onresult=function(e){$("txt").value=e.results[0][0].transcript;$("micmsg").textContent=""};
+    r.onerror=function(){$("micmsg").textContent=t().nomic};
+    r.onend=function(){$("mic").classList.remove("listening");if($("micmsg").textContent===t().listen)$("micmsg").textContent=""};
+    r.start();$("micmsg").textContent=t().listen;
+  }catch(e){$("mic").classList.remove("listening");$("micmsg").textContent=t().nomic}
+};
+
+/* All sections matching the top bar (शिकायत, सेवाएँ, डैशबोर्ड, योजनाएँ, स्थिति, हमारे बारे में, नया क्या है, FAQ, संपर्क) */
+var TABS=["complain","svc","dashboard","schemes","trk","about","news","faq","help"],panel="complain",svcSel=-1;
+var TOP_TABS=["complain","svc","dashboard","about","news","faq","help"];
+
+var SV=[
+  ["🏠","निवास प्रमाण पत्र","Domicile certificate"],
+  ["💰","आय प्रमाण पत्र","Income certificate"],
+  ["📜","जाति प्रमाण पत्र","Caste certificate"],
+  ["👶","जन्म व मृत्यु प्रमाण पत्र","Birth and death certificates"],
+  ["🗺️","भूमि व संपत्ति अभिलेख","Land and property records"],
+  ["🏪","व्यापार लाइसेंस","Business and trade licences"],
+  ["🤝","पेंशन व कल्याण योजनाएँ","Pension and welfare schemes"]
+];
+function showP(p){
+  enter();
+  panel=p;
+  TABS.forEach(function(x){$("p-"+x).classList.toggle("hidden",x!==p)});
+  drawTabs();
+  $("app").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function drawTabs(){
+  var n=$("tabs");n.innerHTML="";
+  TABS.forEach(function(x){
+    var b=document.createElement("button");b.textContent=t()["nav_"+x];
+    if(x===panel)b.setAttribute("aria-current","true");
+    b.onclick=function(){showP(x)};n.appendChild(b);
+  });
+
+  var tn=$("topNavLinks");tn.innerHTML="";
+  TOP_TABS.forEach(function(x){
+    var b=document.createElement("button");b.textContent=t()["nav_"+x];
+    if(x===panel)b.classList.add("active");
+    b.onclick=function(){showP(x)};tn.appendChild(b);
+  });
+}
+function drawSvc(){
+  var l=$("svcList"),i2=lang==="hi"?1:2;l.innerHTML="";
+  SV.forEach(function(s,i){
+    var b=document.createElement("button");
+    b.innerHTML='<span class="svc-ico">'+s[0]+'</span><span>'+s[i2]+'</span>';
+    b.setAttribute("aria-pressed",i===svcSel);
+    b.onclick=function(){svcSel=i;drawSvc()};l.appendChild(b);
+  });
+  if(svcSel>-1){
+    $("svcOut").classList.remove("hidden");
+    $("svcT").textContent=SV[svcSel][0]+" "+SV[svcSel][i2];
+    $("svcS").innerHTML=t().svcSteps.map(function(x){return "<li>"+x+"</li>"}).join("");
+  }
+}
+function tl(){return t().steps.map(function(x,i){return '<li class="'+(i===0?'done':i===1?'now':'')+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("")}
+$("tgo").onclick=function(){
+  var raw=$("tin").value.trim().replace(/^#/,"").toUpperCase(),rec=null;
+  try{rec=JSON.parse(localStorage.getItem("ts_complaints")||"{}")[raw]}catch(e){}
+  $("track2").innerHTML=tl();
+  if(rec){
+    $("track2").insertAdjacentHTML("afterbegin",'<li class="done"><b>'+C[rec.cat][lang]+' • '+C[rec.cat].d+' ('+rec.dist+')</b><span>'+rec.summ+'</span></li>');
+  }
+  $("track2").classList.remove("hidden");
+};
+
+var WHO=[['छात्र/छात्रा','Student'],['किसान','Farmer'],['अपना काम शुरू करना चाहते हैं','Want to start my own work'],['नौकरी या मज़दूरी','Employed or daily worker'],['अन्य','Other']],schShown=false;
+var SCH=[
+  {
+    tag:['स्वास्थ्य','Health'],
+    img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=75',
+    n:['अटल आयुष्मान उत्तराखंड योजना','Atal Ayushman Uttarakhand Yojana'],
+    d:['उत्तराखंड की राज्य स्वास्थ्य बीमा योजना। गोल्डन कार्ड के लिए आधार और राशन कार्ड के साथ CSC केंद्र पर आवेदन किया जा सकता है।','Uttarakhand’s state health insurance scheme. You can apply for the Golden Card at a CSC with your Aadhaar and ration card.'],
+    u:'https://uk.gov.in/',t:function(){return true}
+  },
+  {
+    tag:['पेंशन','Pension'],
+    img:'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=300&q=75',
+    n:['वृद्धावस्था पेंशन','Old age pension'],
+    d:['60 वर्ष या उससे अधिक उम्र के उत्तराखंड निवासियों के लिए मासिक पेंशन। आय की शर्तें लागू हो सकती हैं।','Monthly pension for Uttarakhand residents aged 60 or above. Income conditions may apply.'],
+    u:'https://socialwelfare.uk.gov.in/',t:function(f){return f.a>=60}
+  },
+  {
+    tag:['पेंशन','Pension'],
+    img:'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=300&q=75',
+    n:['दिव्यांग पेंशन','Divyang pension'],
+    d:['18 वर्ष से अधिक उम्र और कम से कम 40% दिव्यांगता वाले लोगों के लिए।','For people aged 18 or above with a disability of at least 40%.'],
+    u:'https://socialwelfare.uk.gov.in/',t:function(f){return f.a>=18&&f.d}
+  },
+  {
+    tag:['पेंशन','Pension'],
+    img:'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=300&q=75',
+    n:['विधवा पेंशन','Widow pension'],
+    d:['उत्तराखंड में विधवाओं के लिए मासिक पेंशन योजना है। आय और अन्य शर्तें लागू हो सकती हैं।','Uttarakhand has a monthly pension scheme for widows. Income and other conditions may apply.'],
+    u:'https://socialwelfare.uk.gov.in/',t:function(f){return f.wd}
+  },
+  {
+    tag:['बालिका कल्याण','Girl Child'],
+    img:'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=75',
+    n:['नंदा गौरा योजना','Nanda Gaura Yojana'],
+    d:['पात्र उत्तराखंड परिवारों की पहली दो बेटियों के लिए जन्म पर और 12वीं पास करने पर आर्थिक सहायता। शर्तें लागू।','Financial help for the first two girl children of eligible Uttarakhand families, at birth and after passing Class 12. Conditions apply.'],
+    u:'https://uk.gov.in/',t:function(f){return f.dg}
+  },
+  {
+    tag:['स्वरोज़गार','Self-Employment'],
+    img:'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=300&q=75',
+    n:['मोटरसाइकिल टैक्सी योजना','Motorcycle Taxi Yojana'],
+    d:['18 से 55 वर्ष के निवासियों के लिए लोन, लगभग मोटरसाइकिल लागत का 75% या अधिकतम ₹1.25 लाख। पहले दो वर्ष का ब्याज सरकार देती है।','A loan for residents aged 18 to 55, up to 75% of the motorcycle cost or ₹1.25 lakh. The state pays the interest for the first two years.'],
+    u:'https://uk.gov.in/',t:function(f){return f.w===2&&f.a>=18&&f.a<=55}
+  },
+  {
+    tag:['स्वरोज़गार','Self-Employment'],
+    img:'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=300&q=75',
+    n:['मुख्यमंत्री स्वरोजगार योजना','Mukhyamantri Swarozgar Yojana'],
+    d:['अपना रोज़गार शुरू करने वालों के लिए स्वरोजगार सहायता। पात्रता और सब्सिडी पोर्टल पर देखें।','Self-employment support for people starting their own work. Check eligibility and subsidy on the portal.'],
+    u:'https://msy.uk.gov.in/',t:function(f){return f.w===2&&f.a>=18}
+  },
+  {
+    tag:['शिक्षा','Education'],
+    img:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=75',
+    n:['छात्रवृत्ति योजनाएँ','Scholarship schemes'],
+    d:['SC/ST/OBC और अल्पसंख्यक छात्रों के लिए छात्रवृत्ति योजनाएँ हैं। पात्रता वर्ग और पारिवारिक आय पर निर्भर करती है।','Scholarship schemes exist for SC/ST/OBC and minority students. Eligibility depends on your category and family income.'],
+    u:'https://uk.gov.in/',t:function(f){return f.w===0}
+  }
+];
+function drawSch(){
+  var s=$('qWho'),v=s.value||'0';s.innerHTML='';
+  WHO.forEach(function(w,i){var o=document.createElement('option');o.value=i;o.textContent=w[lang==='hi'?0:1];s.appendChild(o)});
+  s.value=v;if(schShown)showSch();
+}
+function showSch(){
+  schShown=true;var i2=lang==='hi'?0:1,a=parseInt($('qAge').value,10);
+  if(isNaN(a)){$('schOut').innerHTML='<p class="hint" style="color:var(--danger);font-weight:700">'+t().schAge+'</p>';return}
+  var f={a:a,w:+$('qWho').value,d:$('qDis').checked,wd:$('qWid').checked,dg:$('qGirl').checked};
+  var h=SCH.filter(function(x){return x.t(f)});
+  $('schOut').innerHTML=h.length?h.map(function(x){
+    return '<div class="sch-card"><img class="sch-thumb" src="'+x.img+'" alt="" onerror="this.style.display=\'none\'"><div><span class="tag">'+x.tag[i2]+'</span><br><b style="font-size:18px">'+x.n[i2]+'</b><p style="margin:6px 0 12px">'+x.d[i2]+'</p><a class="btn alt" href="'+x.u+'" target="_blank" rel="noopener noreferrer">'+t().schLink+'</a></div></div>';
+  }).join(''):'<p class="hint">'+t().schNone+'</p>';
+}
+$('sgo').onclick=showSch;
+
+var user=null,gm='login';
+function drawHello(){$('hello').textContent=user?(t().hello+user.name):t().guest}
+function enter(){$('gate').classList.add('hidden');$('app').classList.remove('hidden');drawHello()}
+$('switchUser').onclick=function(){$('app').classList.add('hidden');$('gate').classList.remove('hidden')};
+
+function accs(){try{return JSON.parse(localStorage.getItem('ts_accounts')||'{}')}catch(e){return {}}}
+function saveAcc(a){try{var m=accs();m[a.phone]=a;localStorage.setItem('ts_accounts',JSON.stringify(m))}catch(e){}}
+function drawMode(){
+  var m=$('gMode');m.innerHTML='';
+  [['login','gLogin'],['create','gCreate']].forEach(function(x){
+    var b=document.createElement('button');b.textContent=t()[x[1]];
+    if(gm===x[0])b.setAttribute('aria-current','true');
+    b.onclick=function(){gm=x[0];$('gErr').textContent='';drawMode()};m.appendChild(b);
+  });
+  document.querySelectorAll('.co').forEach(function(e){e.classList.toggle('hidden',gm==='login')});
+}
+$('gGo').onclick=function(){
+  var p=$('gP').value.trim(),o=$('gO').value.trim(),e=$('gErr'),T=t(),a;
+  if(!/^[6-9]\d{9}$/.test(p)){e.textContent=T.gErr;return}
+  if(o!=='1234'){e.textContent=T.gBadOtp;return}
+  if(gm==='login'){a=accs()[p];if(!a){e.textContent=T.gNoAcc;return}}
+  else{
+    var n=$('gN').value.trim(),g=parseInt($('gD').value,10);
+    if(!n||isNaN(g)||g<1||g>120){e.textContent=T.gErr;return}
+    if(accs()[p]){e.textContent=T.gExists;return}
+    a={name:n,phone:p,age:g,addr:$('gA').value.trim()};saveAcc(a);
+  }
+  user=a;$('qAge').value=a.age;e.textContent='';enter();
+};
+$('gSkip').onclick=enter;
+
+/* ================= SMART BILINGUAL CHATBOT (पहाड़ी सहायक AI) ================= */
+var chatStarted=false;
+function addChatMsg(html,who){
+  var b=$("chatBody"),d=document.createElement("div");
+  d.className="msg "+who;
+  d.innerHTML=html;
+  b.appendChild(d);
+  b.scrollTop=b.scrollHeight;
+}
+
+function drawChatQuick(){
+  var q=$("chatQuick");q.innerHTML="";
+  var items=lang==="hi"?[
+    ["💧 पानी की शिकायत","मेरे इलाके में पानी नहीं आ रहा"],
+    ["📊 पोर्टल डैशबोर्ड","पोर्टल के लाइव आँकड़े दिखाएँ"],
+    ["🎁 सरकारी योजनाएँ","मेरे लिए कौन-सी योजनाएँ हैं?"],
+    ["📜 प्रमाण पत्र","निवास या आय प्रमाण पत्र कैसे बनेगा?"]
+  ]:[
+    ["💧 Water complaint","There is no water supply in my area"],
+    ["📊 Portal Dashboard","Show real-time portal statistics"],
+    ["🎁 Govt schemes","Which welfare schemes am I eligible for?"],
+    ["📜 Certificates","How do I apply for Domicile or Income certificate?"]
+  ];
+  items.forEach(function(it){
+    var btn=document.createElement("button");
+    btn.textContent=it[0];
+    btn.onclick=function(){handleChatSend(it[1])};
+    q.appendChild(btn);
+  });
+}
+
+window.botOpenComplain=function(prefill){
+  showP("complain");
+  $("step3").classList.add("hidden");$("step2").classList.add("hidden");$("step1").classList.remove("hidden");
+  if(prefill)$("txt").value=prefill;
+  $("chatWin").classList.add("hidden");
+};
+window.botOpenTab=function(tab){
+  showP(tab);
+  $("chatWin").classList.add("hidden");
+};
+
+function getBotReply(text){
+  var q=text.toLowerCase();
+
+  var idMatch=text.toUpperCase().match(/UK-\d{4}-\d{4,6}/);
+  if(idMatch){
+    var tid=idMatch[0],rec=null;
+    try{rec=JSON.parse(localStorage.getItem("ts_complaints")||"{}")[tid]}catch(e){}
+    if(rec){
+      return lang==="hi"
+        ? "📍 शिकायत <b>#"+tid+"</b> ("+C[rec.cat].d+", "+rec.dist+") दर्ज है और विभाग को भेजी जा चुकी है।<br><button class='msg-act' onclick=\"botOpenTab('trk')\">पूरा स्टेटस देखें →</button>"
+        : "📍 Complaint <b>#"+tid+"</b> ("+C[rec.cat].d+", "+rec.dist+") is logged and forwarded to the department.<br><button class='msg-act' onclick=\"botOpenTab('trk')\">View Full Status →</button>";
+    }
+    return lang==="hi"
+      ? "मुझे <b>"+tid+"</b> इस ब्राउज़र के रिकॉर्ड में नहीं मिला। कृपया नंबर जाँचें या नई शिकायत दर्ज करें।"
+      : "I couldn't find <b>"+tid+"</b> in local records. Please verify the ID or file a new complaint.";
+  }
+
+  if(/(डैशबोर्ड|आँकड़े|आंकड़े|dashboard|stats|rate)/.test(q)){
+    return lang==="hi"
+      ? "📊 पोर्टल पर समय पर समाधान दर <b>96.4%</b> है और <b>1,250+</b> शिकायतें दर्ज हो चुकी हैं।<br><button class='msg-act' onclick=\"botOpenTab('dashboard')\">डैशबोर्ड खोलें →</button>"
+      : "📊 Current on-time resolution rate is <b>96.4%</b> with <b>1,250+</b> complaints logged.<br><button class='msg-act' onclick=\"botOpenTab('dashboard')\">Open Dashboard →</button>";
+  }
+
+  var matchedCat=-1;
+  C.forEach(function(c,i){
+    if(c.w.some(function(w){return q.indexOf(w)>-1}))matchedCat=i;
+  });
+  if(matchedCat>-1){
+    var safeTxt=text.replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+    return lang==="hi"
+      ? "मैंने आपकी समस्या समझ ली है — यह <b>"+C[matchedCat].hi+"</b> ("+C[matchedCat].d+") से जुड़ी है।<br><button class='msg-act' onclick=\"botOpenComplain('"+safeTxt+"')\">शिकायत फ़ॉर्म में भरें →</button>"
+      : "I understood your issue — it belongs to <b>"+C[matchedCat].en+"</b> ("+C[matchedCat].d+").<br><button class='msg-act' onclick=\"botOpenComplain('"+safeTxt+"')\">Auto-fill Complaint Form →</button>";
+  }
+
+  if(/(योजना|पेंशन|आयुष्मान|नंदा|छात्रवृत्ति|scheme|pension|yojana|scholarship|ayushman)/.test(q)){
+    return lang==="hi"
+      ? "🎁 उत्तराखंड की योजनाओं (<b>अटल आयुष्मान, नंदा गौरा, वृद्धावस्था पेंशन, स्वरोज़गार योजना</b>) की पात्रता आप 10 सेकंड में जाँच सकते हैं।<br><button class='msg-act' onclick=\"botOpenTab('schemes')\">योजनाएँ खोजें →</button>"
+      : "🎁 You can check eligibility for Uttarakhand schemes (<b>Atal Ayushman, Nanda Gaura, Pensions, Swarozgar</b>) in 10 seconds.<br><button class='msg-act' onclick=\"botOpenTab('schemes')\">Check Schemes →</button>";
+  }
+
+  if(/(प्रमाण|निवास|आय|जाति|जन्म|apuni|certificate|domicile|income|caste|service)/.test(q)){
+    return lang==="hi"
+      ? "🏛️ निवास, आय, जाति और जन्म प्रमाण पत्र <b>Apuni Sarkar (eservices.uk.gov.in)</b> से बनते हैं।<br><button class='msg-act' onclick=\"botOpenTab('svc')\">सेवा गाइड खोलें →</button>"
+      : "🏛️ Domicile, Income, Caste, and Birth certificates are issued via <b>Apuni Sarkar (eservices.uk.gov.in)</b>.<br><button class='msg-act' onclick=\"botOpenTab('svc')\">Open Service Guide →</button>";
+  }
+
+  if(/(हेल्पलाइन|मदद|नंबर|अपील|1905|help|contact|appeal|delay)/.test(q)){
+    return lang==="hi"
+      ? "☎️ <b>Apuni Sarkar हेल्पडेस्क:</b> <b>1905</b> डायल करें और <b>4</b> दबाएँ।<br>📧 ईमेल: <b>e-helpdesk@uk.gov.in</b>"
+      : "☎️ <b>Apuni Sarkar Helpdesk:</b> Dial <b>1905</b> and press <b>4</b>.<br>📧 Email: <b>e-helpdesk@uk.gov.in</b>";
+  }
+
+  return lang==="hi"
+    ? "🙏 मैं <b>पहाड़ी सहायक AI</b> हूँ। आप मुझसे:<br>• पानी, सड़क या बिजली की शिकायत दर्ज करवा सकते हैं<br>• <b>UK-2026-XXXXX</b> लिखकर स्थिति पूछ सकते हैं<br>• पोर्टल डैशबोर्ड, योजनाओं या प्रमाण पत्रों की जानकारी ले सकते हैं।"
+    : "🙏 I am <b>Pahadi Sahayak AI</b>. You can:<br>• Describe a water, road, or power issue to auto-file a complaint<br>• Send your <b>UK-2026-XXXXX</b> ID to check status<br>• Ask about the Portal Dashboard, schemes, or certificates.";
+}
+
+function handleChatSend(customText){
+  var inp=$("chatIn"),txt=(customText!==undefined?customText:inp.value).trim();
+  if(!txt)return;
+  if(customText===undefined)inp.value="";
+  addChatMsg(txt.replace(/</g,"&lt;"),"user");
+  setTimeout(function(){addChatMsg(getBotReply(txt),"bot")},220);
+}
+
+$("chatFab").onclick=function(){
+  var w=$("chatWin");
+  w.classList.toggle("hidden");
+  if(!chatStarted){
+    chatStarted=true;
+    addChatMsg(lang==="hi"
+      ?"🙏 नमस्ते! मैं <b>पहाड़ी सहायक AI</b> हूँ। अपनी समस्या लिखें या नीचे दिए विकल्पों में से चुनें:"
+      :"🙏 Hello! I’m your <b>Pahadi Sahayak AI</b>. Type your problem or pick a quick topic below:","bot");
+  }
+  if(!w.classList.contains("hidden"))$("chatIn").focus();
+};
+$("chatClose").onclick=function(){$("chatWin").classList.add("hidden")};
+$("chatSend").onclick=function(){handleChatSend()};
+$("chatIn").onkeydown=function(e){if(e.key==="Enter")handleChatSend()};
+
+render();
+</script>
+</body>
+</html>
